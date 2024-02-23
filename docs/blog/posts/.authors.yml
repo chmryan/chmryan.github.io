@@ -1,4 +1,5 @@
 authors:
- chrisryan:
-  name: Chris Ryan
-  description: Creator of this site
+  chmryan:
+    name: Martin Donath
+    description: Creator
+    avatar: https://github.com/squidfunk.png

@@ -3,8 +3,6 @@ title: X11 Forwarding with VS Code in Windows
 date:
   created: 2023-10-14
   updated: 2024-02-23
-# authors:
-#   - chrisryan
 categories:
 - Software Development
 tags:
@@ -16,10 +14,8 @@ tags:
 slug: forwarding-x11-windows
 ---
 
-# Problem
+# X11 Forwarding with VS Code in Windows
 How to forward X11 from a remote server to a local Windows machine using VS Code.
-
-# How I solved it
 
 ## Systems
 

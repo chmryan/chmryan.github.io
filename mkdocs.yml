@@ -49,9 +49,24 @@ nav:
 
 theme:
   name: material
+  icon:
+    logo: material/cog-refresh-outline
   language: en
   palette:
-    primary: indigo
-    accent: indigo
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.indexes
