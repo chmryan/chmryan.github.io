@@ -13,9 +13,10 @@ jobs:
     
     - name: Build 🔧
       run: make docs
+
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        access_token: ${{ secrets.ACCESS_TOKEN }}
+        token: ${{ secrets.ACCESS_TOKEN }}
         branch: main
         folder: docs/site
