@@ -42,7 +42,6 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - About: about/index.md
   - Blog:
       - blog/index.md
   - Projects: projects/index.md
@@ -65,6 +64,7 @@ theme:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: blue grey
+      accent: grey
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
