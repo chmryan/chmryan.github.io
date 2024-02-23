@@ -15,7 +15,6 @@ tags:
 - windows
 slug: forwarding-x11-windows
 ---
-[TOC]
 
 # Problem
 How to forward X11 from a remote server to a local Windows machine using VS Code.
