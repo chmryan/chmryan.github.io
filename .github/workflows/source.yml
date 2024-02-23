@@ -19,4 +19,4 @@ jobs:
       with:
         token: ${{ secrets.ACCESS_TOKEN }}
         branch: main
-        folder: docs/site
+        folder: site
