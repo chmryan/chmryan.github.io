@@ -1,0 +1,29 @@
+site_name: Chris' Tech Ramblings
+site_description: A collection of thoughts and ideas on cloud, iot, software development, and other topics.
+site_url: https://chrismryan.github.io
+dev_addr: 0.0.0.0:8000
+site_author: Chris Ryan
+
+repo_name: 'GitHub'
+repo_url: 'https://github.com/chmryan/chmryan.github.io'
+
+docs_dir: 'docs'
+edit_uri: 'edit/source/docs/content/'
+
+copyright: "Copyright &copy; 2024 Chris M. Ryan"
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - footnotes
+  - toc:
+      permalink: true
+
+nav:
+  - About: about/index.md
+  - Blog: blog/index.md
+  - Projects: projects/index.md
+
+theme:
+  name: darkly
+  nav_style: dark
