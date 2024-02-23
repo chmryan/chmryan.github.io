@@ -18,7 +18,7 @@
         <link rel="prev" href="../about/">
       
       
-        <link rel="next" href="archive/2023/">
+        <link rel="next" href="category/software-development/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -51,6 +51,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -259,6 +261,8 @@
       
         
       
+        
+      
     
     
     
@@ -367,6 +371,76 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Categories
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Categories
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="category/software-development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Software Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -435,6 +509,11 @@
         <li class="md-meta__item">
           <time datetime="2023-10-14 00:00:00">October 14, 2023</time></li>
         
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/software-development/" class="md-meta__link">Software Development</a></li>
+        
         
           
           <li class="md-meta__item">
@@ -448,24 +527,23 @@
     </div>
   </header>
   <div class="md-post__content md-typeset">
-    <h2 id="x11-forwarding-with-vs-code-in-windows"><a class="toclink" href="2023/10/14/x11-forwarding-with-vs-code-in-windows/">X11 Forwarding with VS Code in Windows</a></h2>
-<p><strong>Sources</strong></p>
+    <h2 id="x11-forwarding-with-vs-code-in-windows"><a class="toclink" href="2023/10/14/forwarding-x11-windows/">X11 Forwarding with VS Code in Windows</a></h2>
+<div class="toc">
 <ul>
-<li>https://code.visualstudio.com/docs/remote/ssh</li>
-<li>https://stackoverflow.com/questions/65468655/vs-code-remote-x11-cant-get-display-while-connecting-to-remote-server</li>
-<li>https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file</li>
-<li>https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038</li>
-<li>https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/</li>
+<li><a href="2023/10/14/forwarding-x11-windows/#x11-forwarding-with-vs-code-in-windows">X11 Forwarding with VS Code in Windows</a></li>
+<li><a href="2023/10/14/forwarding-x11-windows/#problem">Problem</a></li>
+<li><a href="2023/10/14/forwarding-x11-windows/#how-i-solved-it">How I solved it</a></li>
 </ul>
-<h2 id="intial-problem"><a class="toclink" href="2023/10/14/x11-forwarding-with-vs-code-in-windows/#intial-problem">Intial Problem</a></h2>
+</div>
+<h2 id="problem"><a class="toclink" href="2023/10/14/forwarding-x11-windows/#problem">Problem</a></h2>
 <p>How to forward X11 from a remote server to a local Windows machine using VS Code.</p>
-<h2 id="how-i-solved-it"><a class="toclink" href="2023/10/14/x11-forwarding-with-vs-code-in-windows/#how-i-solved-it">How I solved it</a></h2>
-<h3 id="systems"><a class="toclink" href="2023/10/14/x11-forwarding-with-vs-code-in-windows/#systems">Systems</a></h3>
+<h2 id="how-i-solved-it"><a class="toclink" href="2023/10/14/forwarding-x11-windows/#how-i-solved-it">How I solved it</a></h2>
+<h3 id="systems"><a class="toclink" href="2023/10/14/forwarding-x11-windows/#systems">Systems</a></h3>
 <ul>
 <li>Remote: Ubuntu Server LTS 22.04.3 (headless)</li>
 <li>Local: Windows 10 with VS Code installed</li>
 </ul>
-<h3 id="steps"><a class="toclink" href="2023/10/14/x11-forwarding-with-vs-code-in-windows/#steps">Steps</a></h3>
+<h3 id="steps"><a class="toclink" href="2023/10/14/forwarding-x11-windows/#steps">Steps</a></h3>
 <ol>
 <li>
 <p>Install VS Code <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh">Remote-SSH</a> extension</p>
@@ -520,6 +598,14 @@ X11UseLocalhost no</code></pre>
 <p>In the remote console, enter <code>xclock</code> and press enter. When the Xming Server is running, a popup window should appear after a few seconds with a clock.</p>
 </li>
 </ol>
+<p><strong>Sources</strong></p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/remote/ssh">https://code.visualstudio.com/docs/remote/ssh</a></li>
+<li><a href="https://stackoverflow.com/questions/65468655/vs-code-remote-x11-cant-get-display-while-connecting-to-remote-server">https://stackoverflow.com/questions/65468655/vs-code-remote-x11-cant-get-display-while-connecting-to-remote-server</a></li>
+<li><a href="https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file">https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file</a></li>
+<li><a href="https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038">https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038</a></li>
+<li><a href="https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/">https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/</a></li>
+</ul>
     
   </div>
 </article>

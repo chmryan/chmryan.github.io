@@ -16,7 +16,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://chrismryan.github.io/blog/2023/10/14/x11-forwarding-with-vs-code-in-windows/</loc>
+         <loc>https://chrismryan.github.io/blog/2023/10/14/forwarding-x11-windows/</loc>
          <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -27,6 +27,11 @@
     </url>
     <url>
          <loc>https://chrismryan.github.io/blog/archive/2023/</loc>
+         <lastmod>2024-02-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chrismryan.github.io/blog/category/software-development/</loc>
          <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
