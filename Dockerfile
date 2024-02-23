@@ -7,4 +7,8 @@ WORKDIR /mkdocs
 VOLUME /mkdocs
 
 RUN apk --no-cache --no-progress add py3-pip \
-  && pip3 install --user -r requirements.txt
+  && python3 -m venv .venv \
+  && source .venv/bin/activate \
+  && pip install --no-cache-dir --upgrade pip \
+  && pip install --no-cache-dir -r requirements.txt \
+  && apk del py3-pip

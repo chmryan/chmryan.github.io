@@ -1,3 +1,2 @@
-# Blog Posts Overview
+# Blog
 
-- [Blog Post 1](post1.md)
