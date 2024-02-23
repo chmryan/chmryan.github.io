@@ -1,24 +1,23 @@
 ---
 title: X11 Forwarding with VS Code in Windows
-description: This is a sample page
-date: 2023-10-14
+date:
+  created: 2023-10-14
+  updated: 2024-02-23
+# authors:
+#   - chrisryan
+categories:
+- Software Development
 tags:
 - ssh
 - remote-development
 - vscode
 - x11
 - windows
+slug: forwarding-x11-windows
 ---
+[TOC]
 
-**Sources**
-
-- https://code.visualstudio.com/docs/remote/ssh
-- https://stackoverflow.com/questions/65468655/vs-code-remote-x11-cant-get-display-while-connecting-to-remote-server
-- https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file
-- https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038
-- https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/
-
-# Intial Problem
+# Problem
 How to forward X11 from a remote server to a local Windows machine using VS Code.
 
 # How I solved it
@@ -80,3 +79,12 @@ How to forward X11 from a remote server to a local Windows machine using VS Code
 10. Install the `xclock` package for testing: `sudo apt upgrade && sudo apt install x11-apps`
     
 11. In the remote console, enter `xclock` and press enter. When the Xming Server is running, a popup window should appear after a few seconds with a clock.
+
+
+**Sources**
+
+- <https://code.visualstudio.com/docs/remote/ssh>
+- <https://stackoverflow.com/questions/65468655/vs-code-remote-x11-cant-get-display-while-connecting-to-remote-server>
+- <https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file>
+- <https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038>
+- <https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/>
