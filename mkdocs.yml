@@ -12,10 +12,27 @@ edit_uri: 'edit/source/docs/content/'
 
 copyright: "Copyright &copy; 2024 Chris M. Ryan"
 
+plugins:
+  - search
+  - exclude:
+      glob:
+        - "**/include-*.md"
+
+# https://squidfunk.github.io/mkdocs-material/extensions/admonition/
+# https://facelessuser.github.io/pymdown-extensions/
 markdown_extensions:
   - attr_list
   - admonition
   - footnotes
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      use_pygments: false
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.snippets:
+      check_paths: true
   - toc:
       permalink: true
 
