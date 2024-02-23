@@ -16,12 +16,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://chrismryan.github.io/blog/post1/</loc>
+         <loc>https://chrismryan.github.io/blog/2023/10/14/x11-forwarding-with-vs-code-in-windows/</loc>
          <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chrismryan.github.io/projects/</loc>
+         <lastmod>2024-02-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://chrismryan.github.io/blog/archive/2023/</loc>
          <lastmod>2024-02-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
