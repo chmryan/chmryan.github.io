@@ -16,7 +16,7 @@
       
       
       
-        <link rel="next" href="category/software-development/">
+        <link rel="next" href="category/home-automation/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -388,6 +388,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -425,11 +429,57 @@
   
   
     <li class="md-nav__item">
+      <a href="category/home-automation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home Automation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
       <a href="category/software-development/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
     Software Development
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+  
+  
+    <li class="md-nav__item">
+      <a href="category/virtualization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtualization
   </span>
   
 
@@ -602,6 +652,131 @@ X11UseLocalhost no</code></pre>
 <li><a href="https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file">https://stackoverflow.com/questions/66160457/vscode-remote-ssh-cannot-identify-private-key-file</a></li>
 <li><a href="https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038">https://stackoverflow.com/questions/19589844/set-up-x11-forwarding-over-ssh#23033038</a></li>
 <li><a href="https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/">https://blog.radwebhosting.com/how-to-setup-ssh-login-with-public-key-authentication/</a></li>
+</ul>
+    
+  </div>
+</article>
+      
+        <article class="md-post md-post--excerpt">
+  <header class="md-post__header">
+    
+    <div class="md-post__meta md-meta">
+      <ul class="md-meta__list">
+        <li class="md-meta__item">
+          <time datetime="2023-02-28 00:00:00">February 28, 2023</time></li>
+        
+          <li class="md-meta__item">
+            in
+            
+              <a href="category/home-automation/" class="md-meta__link">Home Automation</a>, 
+              <a href="category/virtualization/" class="md-meta__link">Virtualization</a></li>
+        
+        
+          
+          <li class="md-meta__item">
+            
+              2 min read
+            
+          </li>
+        
+      </ul>
+      
+    </div>
+  </header>
+  <div class="md-post__content md-typeset">
+    <h2 id="running-home-assistant-on-proxmox-part-1"><a class="toclink" href="2023/02/28/hass-proxmox-part1/">Running Home Assistant on Proxmox - Part 1</a></h2>
+<!-- # Table of contents
+- [1\. Setup](#1-setup)
+- [2\. Production configuration](#2-production-configuration)
+    - [2.1 Change IP and gateway](#21-change-ip-and-gateway)
+    - [2.2 Setup certificate management with ACME](#22-setup-certificate-management-with-acme) -->
+<div class="toc">
+<ul>
+<li><a href="2023/02/28/hass-proxmox-part1/#running-home-assistant-on-proxmox-part-1">Running Home Assistant on Proxmox - Part 1</a></li>
+<li><a href="2023/02/28/hass-proxmox-part1/#1-setup-proxmox">1. Setup Proxmox</a></li>
+<li><a href="2023/02/28/hass-proxmox-part1/#2-production-configuration">2. Production configuration</a></li>
+</ul>
+</div>
+<p>How to prepare a Proxmox server for running Home Assistant in a virtual machine. The first part covers the initial setup of Proxmox, including the installation, configuration, and certificate management.</p>
+<h2 id="1-setup-proxmox"><a class="toclink" href="2023/02/28/hass-proxmox-part1/#1-setup-proxmox">1. Setup Proxmox</a></h2>
+<ol>
+<li>Download ISO and flash on USB Stick with Balena Etcher</li>
+<li>BIOS Settings<ul>
+<li>Disable secure boot</li>
+<li>Enable nested virtualization for VMs (KVM virtualization) to work<ul>
+<li><em>Example</em>: <a href="https://support.hp.com/us-en/document/ish_5637142-5637191-16">HP PCs - Enable Virtualization Technology in the BIOS</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Flash OS on SSD and reboot</li>
+<li>Follow on-screen configuration instructions</li>
+<li><code>ssh-copy-id root@&lt;your-ip-address&gt;</code></li>
+<li><code>ssh root@&lt;your-ip-address&gt;</code></li>
+<li>Run <code>bash -c "$(wget -qLO - https://github.com/tteck/Proxmox/raw/main/misc/post-pve-install.sh)"</code></li>
+<li>Follow terminal prompts. ⚠️ wait for PVE update to finish if selected, this may take several minutes ⚠️</li>
+<li>Reboot</li>
+</ol>
+<h2 id="2-production-configuration"><a class="toclink" href="2023/02/28/hass-proxmox-part1/#2-production-configuration">2. Production configuration</a></h2>
+<h3 id="21-change-ip-and-gateway"><a class="toclink" href="2023/02/28/hass-proxmox-part1/#21-change-ip-and-gateway">2.1 Change IP and gateway</a></h3>
+<ol>
+<li>change gateway (and IP) in <code>/etc/network/interfaces</code></li>
+<li>Only when IP changed: <code>/etc/hosts</code></li>
+<li>Change DNS in <code>/etc/resolv.conf</code></li>
+</ol>
+<h3 id="22-setup-certificate-management-with-acme"><a class="toclink" href="2023/02/28/hass-proxmox-part1/#22-setup-certificate-management-with-acme">2.2 Setup certificate management with ACME</a></h3>
+<ol>
+<li>Datacenter (top level) -&gt; ACME</li>
+<li>Accounts -&gt; Add -&gt; configure</li>
+<li>In cloudflare dashboard:<ul>
+<li>My profile (upper right) -&gt; API Tokens</li>
+<li>Create Token: <token-name>, Permissions: Zone.DNS:Edit, Resources: 1 Zone</token-name></li>
+<li>Create secure note in PW manager</li>
+<li>Test w/ CURL command</li>
+</ul>
+</li>
+</ol>
+<pre class="highlight"><code class="language-bash">curl -X GET "https://api.cloudflare.com/client/v4/user/tokens/verify" \
+     -H "Authorization: Bearer &lt;api-token&gt;" \
+     -H "Content-Type:application/json"</code></pre>
+<pre class="highlight"><code class="language-json">{
+  "result": {
+    "id": "238a33976d2cf7dfba07e9951ddad1cf",
+    "status": "active"
+  },
+  "success": true,
+  "errors": [],
+  "messages": [
+    {
+      "code": 10000,
+      "message": "This API Token is valid and active",
+      "type": null
+    }
+  ]
+}</code></pre>
+<ol>
+<li>
+<p>Challenge Plugins -&gt; Add, use the following config:</p>
+<p><img alt="zoomify" class="center small" src="home_automation/_resources/d0411e2e330e0a625d8b2b6bc0429c6c.png" /></p>
+</li>
+<li>
+<p>Go back to server -&gt; System -&gt; Certificates -&gt; ACME -&gt; Add:</p>
+<p><img alt="zoomify" class="center small" src="home_automation/_resources/f47499603d984316cb586f4f961cdfb4.png" /></p>
+</li>
+<li>
+<p>Press "Order Certificates Now"</p>
+</li>
+<li>
+<p>Add DNS record in local DNS resolver (e.g., router, pihole, etc.)</p>
+</li>
+</ol>
+<p><strong>Sources</strong></p>
+<ul>
+<li><a href="https://www.servethehome.com/how-to-change-primary-proxmox-ve-ip-address/">How to Change Primary Proxmox VE IP Address</a></li>
+<li><a href="https://forum.proxmox.com/threads/how-to-change-my-dns.52879/">How to change my DNS?</a></li>
+<li><a href="https://tteck.github.io/Proxmox/">Proxmox Helper Scripts</a></li>
+<li><a href="https://pve.proxmox.com/wiki/Certificate_Management#sysadmin_certs_get_trusted_acme_cert">Proxmox Docs | Trusted certificates via Let's Encrypt ACME</a></li>
+<li>Help function in Proxmox UI</li>
 </ul>
     
   </div>
